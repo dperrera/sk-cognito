@@ -16,6 +16,7 @@ const oauthProvider = new OAuth2Provider({
 	clientSecret: '',
 	scope: ['openid', 'email'],
 	contentType: 'application/x-www-form-urlencoded',
+	responseType: 'code',
 	profile(profile, tokens) {
 		return {
 			...profile,
