@@ -1,13 +1,13 @@
-import { error } from '@sveltejs/kit';
-import { SvelteKitAuth, Providers } from 'sk-auth';
+import { SvelteKitAuth } from 'sk-auth';
+import { OAuth2Provider } from 'sk-auth/providers';
 
 export const csr = false;
 
 // this is the domain we set up in our Cognito Pool
 const DOMAIN = 'dan.auth.us-east-1.amazoncognito.com';
 
-// these are the configuration settings for our OAUTH2 provider
-const config = {
+const oauthProvider = new OAuth2Provider({
+	id: 'cognito',
 	accessTokenUrl: `https://${DOMAIN}/oauth2/token`,
 	profileUrl: `https://${DOMAIN}/oauth2/userInfo`,
 	authorizationUrl: `https://${DOMAIN}/oauth2/authorize`,
@@ -15,11 +15,17 @@ const config = {
 	clientId: '7r862tpdgjh9vvka9mjuffllj0',
 	clientSecret: '',
 	scope: ['openid', 'email'],
-	id: 'cognito', // IMPORTANT: this is the id that we'll use to identify our provider
-	contentType: 'application/x-www-form-urlencoded'
-};
-
-const oauthProvider = new Providers.OAuth2Provider(config);
+	contentType: 'application/x-www-form-urlencoded',
+	profile(profile, tokens) {
+		return {
+			...profile,
+			access_token: tokens.access_token,
+			id_token: tokens.id_token,
+			refresh_token: tokens.refresh_token,
+			provider: 'cognito'
+		};
+	}
+});
 
 // exposing our auth object
 export const appAuth = new SvelteKitAuth({
