@@ -11,7 +11,7 @@
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
+https://dan.auth.us-east-1.amazoncognito.com/error?error=redirect_mismatch&client_id=7r862tpdgjh9vvka9mjuffllj0
 <button
 	on:click={() => {
 		console.log('hey');
@@ -20,7 +20,7 @@
 
 {#if !user}
 	<a
-		href="https://dan.auth.us-east-1.amazoncognito.com/login?client_id=7r862tpdgjh9vvka9mjuffllj0&response_type=code&scope=email+openid&redirect_uri=http://http://127.0.0.1:5173/"
+		href="https://dan.auth.us-east-1.amazoncognito.com/login?client_id=7r862tpdgjh9vvka9mjuffllj0&response_type=code&scope=email+openid&redirect_uri=http://localhost:5173/api/auth/callback/cognito"
 		>Sign in</a
 	>
 {:else}
