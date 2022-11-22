@@ -5,9 +5,11 @@ import { appAuth } from '$lib/auth';
 import { error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async (req) => {
-	console.log(appAuth.get);
-	const x = await appAuth.get(req);
+export const GET: RequestHandler = async (event) => {
+	// console.log(appAuth.get);
+	console.log(new URL(event.url));
+
+	const x = await appAuth.get({ url: new URL(event.url), ...event.request });
 
 	console.log(x);
 
