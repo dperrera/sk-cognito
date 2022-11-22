@@ -11,12 +11,6 @@
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-https://dan.auth.us-east-1.amazoncognito.com/error?error=redirect_mismatch&client_id=7r862tpdgjh9vvka9mjuffllj0
-<button
-	on:click={() => {
-		console.log('hey');
-	}}>eh</button
->
 
 {#if !user}
 	<a
