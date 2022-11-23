@@ -1,5 +1,5 @@
-import { SvelteKitAuth } from 'sk-auth';
-import { OAuth2Provider } from 'sk-auth/providers';
+import { SvelteKitAuth } from '$lib/dp-auth';
+import { OAuth2Provider } from '$lib/dp-auth/providers';
 
 export const csr = false;
 
@@ -33,4 +33,4 @@ export const appAuth = new SvelteKitAuth({
 	providers: [oauthProvider]
 });
 
-export const { get, post } = appAuth;
+export const { GET, POST } = appAuth;

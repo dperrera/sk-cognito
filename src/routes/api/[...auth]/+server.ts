@@ -1,17 +1,20 @@
 // we're importing our auth object
 import { appAuth } from '$lib/auth';
-// export const { get: GET, post: POST } = appAuth;
+export const { GET, POST } = appAuth;
 
-import { error } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
+// import { error } from '@sveltejs/kit';
+// import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async (event) => {
-	// console.log(appAuth.get);
-	console.log(new URL(event.url));
+// export const GET: RequestHandler = async (event) => {
+// 	// const { get: GET, post: POST } = appAuth;
 
-	const x = await appAuth.get({ url: new URL(event.url), ...event.request });
+// 	// console.log(appAuth.get);
+// 	// console.log(new URL(event.url));
 
-	console.log(x);
+// 	// const x = await appAuth.get(event);
 
-	return new Response(JSON.stringify(x, null, 2));
-};
+// 	// console.log(x);
+
+// 	return new Response('hello world');
+// 	// return new Response(JSON.stringify(x, null, 2));
+// };

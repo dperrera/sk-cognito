@@ -14,7 +14,7 @@
 
 {#if !user}
 	<a
-		href="https://dan.auth.us-east-1.amazoncognito.com/login?client_id=7r862tpdgjh9vvka9mjuffllj0&response_type=code&scope=email+openid&redirect_uri=http://localhost:5173/api/auth/callback/cognito"
+		href="https://dan.auth.us-east-1.amazoncognito.com/login?client_id=7r862tpdgjh9vvka9mjuffllj0&response_type=code&scope=email+openid&redirect_uri=http://localhost:5173/api/auth/callback/cognito/"
 		>Sign in</a
 	>
 {:else}
