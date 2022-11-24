@@ -76,6 +76,11 @@ export abstract class OAuth2BaseProvider<
 		const redirect = this.getStateValue(url.searchParams, 'redirect');
 
 		const tokens = await this.getTokens(code!, this.getCallbackUri(auth, url.host));
+		console.log('====================================');
+		console.log('callback tokens', tokens);
+		console.log('====================================');
+		// console.log('hello', code, request);
+		// console.log('====================================');
 		let user = await this.getUserProfile(tokens);
 
 		if (this.config.profile) {

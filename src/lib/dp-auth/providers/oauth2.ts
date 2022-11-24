@@ -73,6 +73,18 @@ export class OAuth2Provider<
 			body = JSON.stringify(data);
 		}
 
+		console.log('====================================');
+		console.log('accessURL', this.config.accessTokenUrl);
+		console.log('====================================');
+		console.log({
+			body,
+			method: 'POST',
+			headers: {
+				'Content-Type': this.config.contentType,
+				...(this.config.headers ?? {})
+			}
+		});
+		console.log('====================================');
 		const res = await fetch(this.config.accessTokenUrl!, {
 			body,
 			method: 'POST',
@@ -81,7 +93,9 @@ export class OAuth2Provider<
 				...(this.config.headers ?? {})
 			}
 		});
-
+		console.log('====================================');
+		console.log('res', typeof res, await res.json());
+		console.log('====================================');
 		return await res.json();
 	}
 

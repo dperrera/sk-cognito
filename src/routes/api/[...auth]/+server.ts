@@ -1,5 +1,5 @@
 // we're importing our auth object
-import { appAuth } from '$lib/auth';
+import { appAuth } from '$lib/server/auth';
 export const { GET, POST } = appAuth;
 
 // import { error } from '@sveltejs/kit';
